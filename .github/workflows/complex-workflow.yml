@@ -3,58 +3,26 @@ name: complex-workflow
 on: push
 
 jobs:
-  job1:
-    name: FirstJob
+  ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - name: Step one
-        uses: actions/checkout@v2
+    - run: date
 
-      - name: Step two
-        run: env | sort
-
-      - name: Step three
-        run: echo Date!
-
-  job2:
-    name: SecondJob
+  windows:
     runs-on: windows-latest
     steps:
-        - name: Step one
-          uses: actions/checkout@v2
-
-        - name: Step two
-          run: "Get-ChildItem Env: | Sort-Object Name"
-
-        - name: Step three
-          run: echo Date!
-
-  job3:
-    name: ThirdJob
+    - run: date
+ 
+  macos:
     runs-on: macos-latest
     steps:
-        - name: Step one
-          uses: actions/checkout@v2
-
-        - name: Step two
-          run: brew install k6
-            
-        - name: Step three
-          run: echo Date!
-
-  job4:
-    name: FourthJob
-    needs: [job1, job2, job3]
+    - run: date
+    
+  depends:
+    needs: [ubuntu, windows, macos]
     runs-on: ubuntu-latest
     steps:
-      - name: Step one
-        uses: actions/checkout@v2
-        
-      - name: Step two
-        run: env | sort
-
-      - name: Step three
-        run: echo Date!
+    - run: date
 
 
 
