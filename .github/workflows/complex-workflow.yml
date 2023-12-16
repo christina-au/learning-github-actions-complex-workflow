@@ -37,7 +37,7 @@ jobs:
           uses: actions/checkout@v2
 
         - name: Step two
-          run: swift build
+          run: brew install k6
             
         - name: Step three
           run: echo Date!
