@@ -19,34 +19,34 @@ jobs:
   job2:
     name: SecondJob
     runs-on: windows-latest
-      steps:
-      - name: Step one
-        uses: actions/checkout@v2
+    steps:
+        - name: Step one
+          uses: actions/checkout@v2
 
-      - name: Step two
-        run: "Get-ChildItem Env: | Sort-Object Name"
+        - name: Step two
+          run: "Get-ChildItem Env: | Sort-Object Name"
 
-      - name: Step three
-        run: echo Date!
+        - name: Step three
+          run: echo Date!
 
   job3:
     name: ThirdJob
     runs-on: macos-latest
-      steps:
-      - name: Step one
-        uses: actions/checkout@v2
+    steps:
+        - name: Step one
+          uses: actions/checkout@v2
 
-      - name: Step two
-        run: swift build
-          
-      - name: Step three
-        run: echo Date!
+        - name: Step two
+          run: swift build
+            
+        - name: Step three
+          run: echo Date!
 
   job4:
     name: FourthJob
     needs: [job1, job2, job3]
     runs-on: ubuntu-latest
-      steps:
+    steps:
       - name: Step one
         uses: actions/checkout@v2
         
